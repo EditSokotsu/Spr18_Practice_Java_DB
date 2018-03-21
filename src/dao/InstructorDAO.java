@@ -15,9 +15,9 @@ public class InstructorDAO {
     private Connection myConn;
 
     public InstructorDAO() throws Exception {
-        String dbURL = "jdbc:mysql://localhost/university";
-        String user = "root";
-        String pass = "root";
+        String dbURL = "jdbc:mysql://cs2.mwsu.edu/muskwey";
+        String user = "muskwey";
+        String pass = "monkeyb8s4n3s7";
         myConn = DriverManager.getConnection(dbURL, user, pass);
         System.out.println("DB connection successful");
     }

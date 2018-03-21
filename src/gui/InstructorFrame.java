@@ -30,7 +30,7 @@ private InstructorDAO instructorDAO;
             System.out.println("Problem");
         }
         InstructorTableModel model = new InstructorTableModel(instructors);
-        InstructorTable.setModel(model);
+        table_Instructor.setModel(model);
         
         
     }
@@ -45,12 +45,24 @@ private InstructorDAO instructorDAO;
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        InstructorTable = new javax.swing.JTable();
+        table_Instructor = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        text_fld_ID = new javax.swing.JTextField();
+        text_fld_Name = new javax.swing.JTextField();
+        text_fld_Dept = new javax.swing.JTextField();
+        text_fld_Salary = new javax.swing.JTextField();
+        but_AddInstructor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        InstructorTable.setModel(new javax.swing.table.DefaultTableModel(
+        table_Instructor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -66,7 +78,28 @@ private InstructorDAO instructorDAO;
                 "ID", "Name", "Dept", "Salary"
             }
         ));
-        jScrollPane1.setViewportView(InstructorTable);
+        jScrollPane1.setViewportView(table_Instructor);
+
+        jLabel1.setText("ID:");
+
+        jLabel2.setText("Name:");
+
+        jLabel3.setText("Dept:");
+
+        jLabel4.setText("Salary:");
+
+        text_fld_ID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_fld_IDActionPerformed(evt);
+            }
+        });
+
+        but_AddInstructor.setText("jButton1");
+        but_AddInstructor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                but_AddInstructorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,19 +107,78 @@ private InstructorDAO instructorDAO;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(text_fld_ID)
+                    .addComponent(text_fld_Name)
+                    .addComponent(text_fld_Dept)
+                    .addComponent(text_fld_Salary, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(but_AddInstructor)
+                .addGap(152, 152, 152))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(text_fld_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(text_fld_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(text_fld_Dept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(but_AddInstructor)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(text_fld_Salary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void text_fld_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_fld_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_fld_IDActionPerformed
+
+    private void but_AddInstructorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but_AddInstructorActionPerformed
+        int ID;
+        String name, dept;
+        double salary;
+        ID = Integer.parseInt(text_fld_ID.getText());
+        name = text_fld_Name.getText();
+        dept = text_fld_Dept.getText();
+        salary = Double.parseDouble(text_fld_Salary.getText());
+        try{
+            instructorDAO.addInstructor(ID, name, dept, salary);
+        }
+        catch(Exception exc){
+            System.out.println("Problem adding instructor" + exc);
+        }
+        
+        
+        
+    }//GEN-LAST:event_but_AddInstructorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,7 +216,16 @@ private InstructorDAO instructorDAO;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable InstructorTable;
+    private javax.swing.JButton but_AddInstructor;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable table_Instructor;
+    private javax.swing.JTextField text_fld_Dept;
+    private javax.swing.JTextField text_fld_ID;
+    private javax.swing.JTextField text_fld_Name;
+    private javax.swing.JTextField text_fld_Salary;
     // End of variables declaration//GEN-END:variables
 }
